@@ -95,19 +95,26 @@
 </div>
 
 <form method="post" action="/attendance/student/${student.id}/update-summary">
-    <input type="number" name="presentDays" value="${presentDays}" />
-    <input type="number" name="totalDays" value="${totalDays}" />
-    <input type="submit" value="Save Summary" />
+    <label for="presentDays">Present Days</label>
+    <input type="number" id="presentDays" name="presentDays" value="${presentDays}" required>
+
+    <label for="totalDays">Total Days</label>
+    <input type="number" id="totalDays" name="totalDays" value="${totalDays}" required>
+
+    <label for="percentage">Attendance %</label>
+    <input type="text" id="percentage" readonly>
+    
+    <button type="submit">Save Summary</button>
 </form>
 
 
 <script>
     function goBack() {
-        window.location.href = "/student/${student.id}/attendance";
+        window.location.href = "/lists";
     }
 
     function logout() {
-        window.location.href = "/student/logins";
+        window.location.href = "/logins";
     }
 
     const presentInput = document.getElementById('presentDays');
@@ -115,14 +122,17 @@
     const percentInput = document.getElementById('percentage');
 
     function updatePercentage() {
-        const present = parseInt(presentInput.value) || 0;
-        const total = parseInt(totalInput.value) || 1;
+        const present = parseInt(document.getElementById('presentDays').value) || 0;
+        const total = parseInt(document.getElementById('totalDays').value) || 1;
         const percent = ((present / total) * 100).toFixed(2);
-        percentInput.value = percent + "%";
+        document.getElementById('percentage').value = percent + "%";
     }
 
-    presentInput.addEventListener('input', updatePercentage);
-    totalInput.addEventListener('input', updatePercentage);
+    document.getElementById('presentDays').addEventListener('input', updatePercentage);
+    document.getElementById('totalDays').addEventListener('input', updatePercentage);
+
+    // Initial calculation
+    updatePercentage();
 </script>
 
 </body>

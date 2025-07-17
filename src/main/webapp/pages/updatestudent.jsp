@@ -83,7 +83,7 @@
         <div class="container">
             <h1>Update Student</h1>
             <!-- ✅ Fixed form action -->
-            <form action="${pageContext.request.contextPath}/student/updates" method="post">
+            <form action="${pageContext.request.contextPath}/updates" method="post">
                 <input type="hidden" name="id" value="${student.id}">
 
                 <label for="name">Name</label>

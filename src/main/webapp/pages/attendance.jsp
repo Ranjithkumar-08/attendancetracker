@@ -116,11 +116,11 @@
 
 <script>
 function goBack() {
-    window.location.href = "/student/lists";
+    window.location.href = "/lists";
 }
 
 function logout() {
-    window.location.href = "/student/logins";
+    window.location.href = "/logins";
 }
 </script>
 

@@ -168,11 +168,11 @@
             <td>${student.department}</td>
             <td>${student.email}</td>
             <td>
-                <a href="/student/update/${student.id}"><button class="update-btn">Update</button></a>
-                <a href="/student/delete/${student.id}"><button class="delete-btn">Delete</button></a>
+                <a href="/update/${student.id}"><button class="update-btn">Update</button></a>
+                <a href="/delete/${student.id}"><button class="delete-btn">Delete</button></a>
             </td>
             <td>
-                <a href="/student/${student.id}/attendance"><button class="view-btn">View Attendance</button></a>
+                <a href="/${student.id}/attendance"><button class="view-btn">View Attendance</button></a>
             </td>
         </tr>
     </c:if>
@@ -181,19 +181,19 @@
     </tbody>
 </table>
 
-<a href="/student/registers" class="add-btn">Add New Student</a>
+<a href="/registers" class="add-btn">Add New Student</a>
 
 <script>
     function logout() {
         setTimeout(() => {
-            window.location.href = "/student/logins";
+            window.location.href = "/logins";
         }, 100);
     }
 
 
     function goBack() {
         setTimeout(() => {
-            window.location.href = "/student/registers";
+            window.location.href = "/registers";
         }, 100);
     }
 </script>

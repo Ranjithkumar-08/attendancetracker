@@ -119,7 +119,7 @@
 
 <script>
     function goBack() {
-        window.location.href = "/student/lists";
+        window.location.href = "/lists";
     }
 </script>
 

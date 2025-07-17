@@ -147,14 +147,14 @@
 <div class="navbar">
     <a href="#">Home</a>
     <a href="lists">Students</a>
-    <a href="/student/attendance">Attendance</a>
+    <a href="lists">Attendance</a>
     <a href="#">Services</a>
 </div>
 
 <div class="main-content">
     <div class="container">
         <h1>Student Registration</h1>
-        <form action="/student/save" method="post">
+       <form action="/save" method="post">
     <label for="name">Name</label>
     <input type="text" id="name" name="name" required>
 
@@ -173,7 +173,7 @@
 <script>
     function logout() {
         setTimeout(() => {
-            window.location.href = "/student/logins";
+            window.location.href = "/logins";
         }, 1000);
     }
 </script>

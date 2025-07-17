@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/student")
 public class StudentController {
 
     @Autowired
@@ -21,7 +20,12 @@ public class StudentController {
     private AttendanceRepository attendanceRepo;
 
 
-   
+    @GetMapping("/")
+    public String redirectToSignin() {
+        return "redirect:/logins";
+    }
+
+    
     @GetMapping("/registers")
     public String showRegistrationForm(Model model) {
         model.addAttribute("student", new Student());
@@ -32,7 +36,7 @@ public class StudentController {
     @PostMapping("/save")
     public String saveStudent(@ModelAttribute Student student) {
         studentRepo.save(student);
-        return "redirect:/student/lists";
+        return "redirect:/lists";
     }
 
  
@@ -67,7 +71,7 @@ public class StudentController {
     @PostMapping("/updates")
     public String updateStudent(@ModelAttribute Student student) {
         studentRepo.save(student);
-        return "redirect:/student/lists";
+        return "redirect:/lists";
     }
 
   
@@ -75,7 +79,7 @@ public class StudentController {
     public String viewAttendance(@PathVariable Long id, Model model) {
         Student student = studentRepo.findById(id).orElse(null);
         if (student == null) {
-            return "redirect:/student/lists";
+            return "redirect:/lists";
         }
 
         List<Attendance> attendanceList = attendanceRepo.findByStudentId(id);
@@ -91,6 +95,6 @@ public class StudentController {
     @GetMapping("/delete/{id}")
     public String deleteStudent(@PathVariable Long id) {
         studentRepo.deleteById(id);
-        return "redirect:/student/lists";
+        return "redirect:/lists";
     }
 }

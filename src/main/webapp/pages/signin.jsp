@@ -121,7 +121,7 @@ function signIn() {
         alert(" Welcome To Twin Birds School !");
 
         setTimeout(() => {
-            window.location.href = "/student/registers";
+            window.location.href = "/registers";
         }, 1000);
     } else {
         message.textContent = "Invalid username or password.";
